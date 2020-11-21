@@ -1,48 +1,27 @@
 <script>
-	import Counter from '$components/Counter.svelte';
+  import Footer from "$components/Footer.svelte";
+  import Results from "$components/Results.svelte";
+  import { isResultVisibleStore } from "../components/PokemonStore.svelte";
+
+  export let isLoading = true;
+
+  isResultVisibleStore.set(true);
 </script>
 
-<main>
-	<h1>Hello world!</h1>
-
-	<Counter/>
-	<p>Visit the <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	:root {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	}
-
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4rem;
-		font-weight: 100;
-		line-height: 1.1;
-		margin: 4rem auto;
-		max-width: 14rem;
-	}
-
-	p {
-		max-width: 14rem;
-		margin: 2rem auto;
-		line-height: 1.35;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			max-width: none;
-		}
-
-		p {
-			max-width: none;
-		}
-	}
+  div {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 </style>
+
+<svelte:head>
+  <link rel="icon" href="/pokemon_icon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/pokemon_icon.svg" />
+  <title>Pokedex App 🐤</title>
+</svelte:head>
+
+<div>
+  <Results />
+</div>
+<Footer text="© Pokedex App Svelte - " version="- version 1.0" />
